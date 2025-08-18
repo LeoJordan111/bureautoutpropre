@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./assets/style/style.css" />
+
+    <title>Mon bureau tout propre</title>
+  </head>
+
+  <body>
+    <div >
+      <h2>Présentation</h2>
+      <p> Voilà pourquoi nous choisir</p>
+    <div>
+
+
+    <div >
+      <h2>Simulateur de prix - mon bureau tout propre</h2>
+      <form>
+        <label for="size">Surface à nettoyer :</label>
+        <input type="text" name="size" id="size" /><br /><br />
+        <label for="frequency">Fréquence de nettoyage :</label>
+        <input type="text" name="frequency" id="frequency" /><br /><br />
+        <p>Option vitres :</p>
+        <div >
+          <input
+        
+            type="radio"
+            name="windowsOption"
+            id="windowsYes"
+            checked
+          />
+          <label for="windowsYes"> Oui </label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            name="windowsOption"
+            id="windowsNo"
+          />
+          <label for="windowsNo"> Non </label>
+        </div>
+
+        <br /><br />
+
+        <button type="submit"  id="go">Envoyer</button>
+      </form>
+    </div>
+
+    <script>
+    
+    const btn = document.querySelector("#go");
+
+
+
+
+    btn.addEventListener("click", (e) => {
+        e.preventDefault(); 
+        const inputSize = document.querySelector('#size');
+        const inputFrequency = document.querySelector('#size');
+        const windowsOption = document.querySelector('input[name="windowsOption"]:checked').value;
+        console.log(windowsOption.value)
+        let size = inputSize.value
+        let frequency = inputFrequency.value
+
+        function calculPrice(size, frequency) {
+            let price = frequency * size * 15;
+            
+            if (windowsOption === 'oui') {
+                price += 50;
+            }
+            return price
+          }
+
+        console.log(calculPrice(size, frequency))
+    })
+    </script>
+  </body>
+</html>
