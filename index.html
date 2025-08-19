@@ -4,77 +4,131 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./assets/style/style.css" />
-
     <title>Mon bureau tout propre</title>
+    <style></style>
   </head>
 
   <body>
-    <div >
-      <h2>Présentation</h2>
-      <p> Voilà pourquoi nous choisir</p>
-    <div>
+    <div class="container">
+      <header>
+        <img src="./assets/images/mbtp.png" alt="logo" class="logo" />
+        <h1>Mon bureau tout propre</h1>
+      </header>
 
+      <section class="section-presentation">
+        <h2>Présentation</h2>
+        <p>
+          Mon bureau tout propre est une entreprise de nettoyage professionnel
+          spécialisée dans les environnements de travail. Nous comprenons que la
+          propreté est essentielle à la productivité et au bien-être des
+          employés. C'est pourquoi nous vous offrons des services de nettoyage
+          de haute qualité pour vous aider à créer un environnement sain et
+          impeccable.
+        </p>
+      </section>
 
-    <div >
-      <h2>Simulateur de prix - mon bureau tout propre</h2>
-      <form>
-        <label for="size">Surface à nettoyer :</label>
-        <input type="text" name="size" id="size" /><br /><br />
-        <label for="frequency">Fréquence de nettoyage :</label>
-        <input type="text" name="frequency" id="frequency" /><br /><br />
-        <p>Option vitres :</p>
-        <div >
+      <section class="section-services">
+        <h2>Nos services</h2>
+        <p>
+          Nous offrons une large gamme de services personnalisés pour répondre à
+          vos besoins, y compris :
+        </p>
+        <ul>
+          <li>
+            Nettoyage régulier des bureaux : Nettoyage des surfaces,
+            dépoussiérage, aspiration des moquettes et lavage des sols.
+          </li>
+          <li>
+            Nettoyage des espaces communs : Désinfection des cuisines, des
+            salles de bain et des aires de repos.
+          </li>
+          <li>Entretien spécialisé (optionnel): Nettoyage de vitres.</li>
+          <li>
+            Services de conciergerie : Gestion des déchets, réapprovisionnement
+            des fournitures et entretien quotidien pour un bureau toujours
+            propre.
+          </li>
+        </ul>
+      </section>
+
+<section class="section-why-us">
+  <h2>Pourquoi nous choisir ?</h2>
+  <ul>
+    <li>
+      <h3>Professionnalisme</h3>
+      <p>
+        Notre équipe est formée pour respecter les normes de votre secteur
+        d'activité.
+      </p>
+    </li>
+    <li>
+      <h3>Flexibilité</h3>
+      <p>
+        Nous adaptons nos services à votre emploi du temps et à vos exigences.
+      </p>
+    </li>
+    <li>
+      <h3>Engagement écologique</h3>
+      <p>
+        Nous utilisons des produits de nettoyage respectueux de l'environnement.
+      </p>
+    </li>
+    <li>
+      <h3>Satisfaction garantie</h3>
+      <p>
+        Nous nous engageons à offrir une qualité de service exceptionnelle.
+      </p>
+    </li>
+  </ul>
+</section>
+
+    <div class="simulator-container">
+      <h2>Simulateur de prix</h2>
+      <form id="price-form">
+        <label for="size">Surface à nettoyer (en m²):</label>
+        <input type="text" name="size" id="size" required /><br />
+
+        <label>Nombre de jours par semaine :</label>
+        <div class="radio-group">
+          <input type="radio" name="frequency" id="one" value="1" checked />
+          <label for="one">1</label>
+          <input type="radio" name="frequency" id="two" value="2" />
+          <label for="two">2</label>
+          <input type="radio" name="frequency" id="three" value="3" />
+          <label for="three">3</label>
+          <input type="radio" name="frequency" id="four" value="4" />
+          <label for="four">4</label>
+          <input type="radio" name="frequency" id="five" value="5" />
+          <label for="five">5</label>
+        </div>
+        <br />
+
+        <label>Option vitres :</label>
+        <div class="checkbox-group">
           <input
-        
             type="radio"
             name="windowsOption"
             id="windowsYes"
-            checked
+            value="yes"
           />
-          <label for="windowsYes"> Oui </label>
-        </div>
-        <div>
+          <label for="windowsYes">Oui</label>
           <input
             type="radio"
             name="windowsOption"
             id="windowsNo"
+            value="no"
+            checked
           />
-          <label for="windowsNo"> Non </label>
+          <label for="windowsNo">Non</label>
         </div>
+        <br />
 
-        <br /><br />
-
-        <button type="submit"  id="go">Envoyer</button>
+        <button type="submit" id="goCalculPrice">Calculer le prix</button>
       </form>
+      <div id="result"></div>
     </div>
+    <script src="./assets/js/script.js">
 
-    <script>
-    
-    const btn = document.querySelector("#go");
-
-
-
-
-    btn.addEventListener("click", (e) => {
-        e.preventDefault(); 
-        const inputSize = document.querySelector('#size');
-        const inputFrequency = document.querySelector('#size');
-        const windowsOption = document.querySelector('input[name="windowsOption"]:checked').value;
-        console.log(windowsOption.value)
-        let size = inputSize.value
-        let frequency = inputFrequency.value
-
-        function calculPrice(size, frequency) {
-            let price = frequency * size * 15;
-            
-            if (windowsOption === 'oui') {
-                price += 50;
-            }
-            return price
-          }
-
-        console.log(calculPrice(size, frequency))
-    })
     </script>
   </body>
 </html>
